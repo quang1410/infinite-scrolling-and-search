@@ -4,7 +4,7 @@ export const api = axios.create({
     baseURL: 'https://dummyjson.com'
 })
 
-export const getProductPage = async (limit = 10, options = {}) => {
+export const getProductPage = async (limit = 20, options = {}) => {
     const response = await api.get(`/products?limit=${limit}`, options)
     return response.data
 };

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
-import { getProductPage } from '../api/axios';
+
 import useStore from './useStore';
-import { ACTION_TYPE } from '../utils/constants';
+
 import { ResultType } from '../types/type';
+import { getProductPage } from '../api/axios';
+import { ACTION_TYPE } from '../utils/constants';
 
 type Props = {
     limit: number;

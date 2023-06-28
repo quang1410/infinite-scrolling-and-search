@@ -1,15 +1,19 @@
 import { useState, useRef, useCallback } from 'react';
-import useProduct from '../../hooks/useProduct';
+
 import { Product } from '../../components/product';
-import styles from './productPage.module.css';
-import { ProductType } from '../../types/type';
 import SearchInput from '../../components/searchInput/searchInput';
-import { getProductBySearch } from '../../api/axios';
+
+import useProduct from '../../hooks/useProduct';
 import useStore from '../../hooks/useStore';
+import { getProductBySearch } from '../../api/axios';
+
+import { ProductType } from '../../types/type';
 import { ACTION_TYPE } from '../../utils/constants';
 
+import styles from './productPage.module.css';
+
 const ProductPage = () => {
-    const [limit, setLimit] = useState<number>(10);
+    const [limit, setLimit] = useState<number>(20);
     const {
         isLoading,
         isError,
@@ -28,7 +32,7 @@ const ProductPage = () => {
 
         intObserver.current = new IntersectionObserver(products => {
             if (products[0].isIntersecting && hasNextPage) {
-                setLimit(prev => prev + 10)
+                setLimit(prev => prev + 20)
             }
         })
 
